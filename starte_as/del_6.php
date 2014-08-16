@@ -1,9 +1,9 @@
 <p>Det er valgfritt å ha en daglig leder. En eventuell daglig leder må ha fylt 18 år.</p>
-<input type="radio" value="0" name="daglig_leder" id="daglig_leder_nei" onclick="removeDagligLeder()"/>
+<input type="radio" value="0" name="daglig_leder" id="daglig_leder_nei" onclick="dagligLederHandler()"/>
 <label for="daglig_leder_nei">Det skal ikke være daglig leder</label>
-<input type="radio" value="1" name="daglig_leder" id="daglig_leder_ja" onclick="addDagligLeder()"/>
+<input type="radio" value="1" name="daglig_leder" id="daglig_leder_ja" onclick="dagligLederHandler()"/>
 <label for="daglig_leder_ja">Det skal være daglig leder</label>
-<div class="row">
+<div class="row" id="daglig_leder_row">
 	<div class="small-6 columns">
 		<div class="panel">
 			<h3>Daglig leder</h3>
@@ -16,6 +16,7 @@
 			<label>Postnummer:</label>
 			<input type="text" />
 			<label>Poststed:</label>
+			<input type="text" />
 		</div>
 	</div>
 

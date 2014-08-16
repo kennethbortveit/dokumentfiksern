@@ -184,4 +184,78 @@ function removeFirm(id){
 	parentNode = column.parentNode;
 	parentNode.removeChild(column);
 }
+function addDagligLeder(){
+	var row = document.getElementById("daglig_leder_row");
+	var column = document.createElement("div");
+	column.className = "small-6 columns";
+	column.id = "daglig_leder_column";
+	var panel = document.createElement("div");
+	panel.className = "panel";
+	var headline = document.createElement("h3");
+	var headlineText = document.createTextNode("Daglig Leder");
+	var navnLabel = document.createElement("label");
+	var personNummerLabel = document.createElement("label");
+	var addresseLabel = document.createElement("label");
+	var postNummerLabel = document.createElement("label");
+	var postStedLabel = document.createElement("label");
+
+	var navnText = document.createTextNode("Fullt Navn:"); 
+	var personNummerText = document.createTextNode("Personnr./D-nr.:");
+	var addresseText = document.createTextNode("Addresse:");
+	var postNummerText = document.createTextNode("Postnummer:");
+	var postStedText = document.createTextNode("Poststed:");
+
+	var navnInput = document.createElement("input");
+	navnInput.type = "text";
+	var personNummerInput = document.createElement("input");
+	personNummerInput.type = "text";
+	var addresseInput = document.createElement("input");
+	addresseInput.type = "text";
+	var postNummerInput = document.createElement("input");
+	postNummerInput.type = "text";
+	var postStedInput = document.createElement("input");
+	postStedInput.type = "text";
+
+	headline.appendChild(headlineText);
+	navnLabel.appendChild(navnText);
+	personNummerLabel.appendChild(personNummerText);
+	addresseLabel.appendChild(addresseText);
+	postNummerLabel.appendChild(postNummerText);
+	postStedLabel.appendChild(postStedText);
+
+	row.appendChild(column);
+	column.appendChild(panel);
+	panel.appendChild(headline);
+	panel.appendChild(navnLabel);
+	panel.appendChild(navnInput);
+	panel.appendChild(personNummerLabel);
+	panel.appendChild(personNummerInput);
+	panel.appendChild(addresseLabel);
+	panel.appendChild(addresseInput);
+	panel.appendChild(postNummerLabel);
+	panel.appendChild(postNummerInput);
+	panel.appendChild(postStedLabel);
+	panel.appendChild(postStedInput);
+
+
+}
+function removeDagligLeder(){
+	var row = document.getElementById("daglig_leder_row");
+	while(row.firstChild){
+		row.removeChild(row.firstChild);
+	}
+}
+function dagligLederHandler(){
+	var row = document.getElementById("daglig_leder_row");
+	var ja = document.getElementById("daglig_leder_ja");
+	var nei = document.getElementById("daglig_leder_nei");
+
+	if(ja.checked && !row.firstChild){
+		addDagligLeder();
+	}
+	else if(nei.checked){
+		removeDagligLeder();
+	}
+
+}
 
