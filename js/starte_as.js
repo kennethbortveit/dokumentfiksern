@@ -259,3 +259,67 @@ function dagligLederHandler(){
 
 }
 
+function del2Handler(){
+	
+	var ja = document.getElementById("besokadresse_ja");
+	var nei = document.getElementById("besokadresse_nei");
+	
+	if(ja.checked){
+		cloneBesok();
+	}
+	else if(nei.checked){
+		clearDel2Post();
+	}
+}
+
+function cloneBesok(){
+	var besokAdr = document.getElementById("del2besokadr");
+	var besokPostNr = document.getElementById("del2besokpostnr");
+	var besokPostSted = document.getElementById("del2besoksted");
+	
+	
+	var postPostAdr = document.getElementById("del2postadr");
+	var postPostNr = document.getElementById("del2postpostnr");
+	var postPostSted = document.getElementById("del2poststed");
+	
+	postPostAdr.value = besokAdr.value;
+	postPostNr.value = besokPostNr.value;
+	postPostSted.value = besokPostSted.value;
+}
+
+function clearDel2Post(){
+	var postPostAdr = document.getElementById("del2postadr");
+	var postPostNr = document.getElementById("del2postpostnr");
+	var postPostSted = document.getElementById("del2poststed");
+	postPostAdr.value = "";
+	postPostNr.value = "";
+	postPostSted.value = "";
+	
+}
+
+function validateDel1(){
+	var input = document.getElementById("sjekk_navn_input");
+	var error = document.createElement("small");
+	error.className = "error";
+	errorText = document.createTextNode("Ugyldig input");
+	error.appendChild(errorText);
+	input.parentNode.insertBefore(error, input.nextSibling);
+}
+function validateDel2(){
+	
+}
+function validateDel3(){
+
+}
+function validateDel4(){
+
+}
+function validateDel5(){
+
+}
+function validateDel6(){
+
+}
+function validateDel7(){
+
+}

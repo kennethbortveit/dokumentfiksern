@@ -6,6 +6,7 @@
 	<a id="brreg_link" href="http://brreg.no/" target="_blank">
 		<button id="sjekk_navn_knapp" onclick="setLink()">Valider</button>
 	</a>
+
 </fieldset>
 
 <input type="checkbox" /><label>Jeg har kontrollert at navnet er ledig og i tråd med navnereglene.</label>
