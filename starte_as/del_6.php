@@ -1,7 +1,7 @@
 <p>Det er valgfritt å ha en daglig leder. En eventuell daglig leder må ha fylt 18 år.</p>
-<input type="radio" value="0" name="daglig_leder" id="daglig_leder_nei" onclick="dagligLederHandler()"/>
+<input type="radio" value="0" name="daglig_leder" id="daglig_leder_nei" onclick="dagligLederHandler()" />
 <label for="daglig_leder_nei">Det skal ikke være daglig leder</label>
-<input type="radio" value="1" name="daglig_leder" id="daglig_leder_ja" onclick="dagligLederHandler()"/>
+<input type="radio" value="1" name="daglig_leder" id="daglig_leder_ja" onclick="dagligLederHandler()" checked="true"/>
 <label for="daglig_leder_ja">Det skal være daglig leder</label>
 <div class="row" id="daglig_leder_row">
 	<div class="small-6 columns">

@@ -12,40 +12,7 @@
 <link rel="shortcut icon" href="img/icon.png" />
 
 <script src="js/starte_as.js"></script>
-<script>
-//Del 1
-var del1KontrollertNavn;
-//Del 2
-var del2BesokAdresse;
-var del2BesokPostnummer;
-var del2BesokSted;
-var del2BesokKommune;
-var del2Ulik;
-var del2postadresse;
-var del2Postnummer;
-var del2Poststed;
-var del2Telefon;
-var del2Epost;
-var del2BekreftEpost;
-var del2Aksjekapital;
-//Del 3
-var del3Beskrivelse;
-//Del 4
-var del4ListeMedPersoner;
-var del4ListeMedFirmaer;
-//Del 5
-var del5AksjerTotalt;
-var del5PrisPrAksje;
-var del5TotalAksjeKapital;
-//Del 6
-var del6SkalDetVareDagligLeder;
-var del6DagligLeder;
-var del6StyreLeder;
-var del6ListeMedStyreMedlemmer;
-var del6ListeMedVaramedlemmer;
-//Del 7
-var del7SignaturRett;
-</script>
+
 </head>
 <body>
 <?php include("top_bar.php");?>
@@ -136,7 +103,7 @@ var del7SignaturRett;
 		<p>Du blir nå sendt til paypal som er vår sikre kortbetalingsløsning. Når du registrerer AS så må en også registrere seg i foretaksregisteret, og der tilkommer et registreringsgebyr til det offentlige. Gebyrsatsene kan ses <a href="http://www.brreg.no/reg_gebyrer/" target="_blank">her</a>.</p>
 		<div class="row">
 			<div class="small-12 columns">
-				<button data-reveal-id="confirmation_modal">Bekreft og betal</button>
+				<button data-reveal-id="confirmation_modal">Bekreft</button>
 			</div>
 		</div>
 	</div>
