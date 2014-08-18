@@ -297,29 +297,84 @@ function clearDel2Post(){
 	
 }
 
-function validateDel1(){
-	var input = document.getElementById("sjekk_navn_input");
-	var error = document.createElement("small");
-	error.className = "error";
-	errorText = document.createTextNode("Ugyldig input");
-	error.appendChild(errorText);
-	input.parentNode.insertBefore(error, input.nextSibling);
-}
-function validateDel2(){
+
+
+
+
+
+function setConfirmationModal(){
+	alert("setConfirmationModal");
+	var navn = document.getElementById("sjekk_navn_input");
+	var bekreftNavn = document.getElementById("bekreft_navn");
+	bekreftNavn.innerHTML = navn.value;
 	
-}
-function validateDel3(){
+	var besokAdr = document.getElementById("del2besokadr");
+	var bekreftBesokAdr = document.getElementById("bekreft_besok_adr");
+	bekreftBesokAdr.innerHTML = besokAdr.value;
+	
+	var besokPostnr = document.getElementById("del2besokpostnr");
+	var bekreftBesokPostnr = document.getElementById("bekreft_besok_postnummer");
+	bekreftBesokPostnr.innerHTML = besokPostnr.value;
+	
+	var besokPostSted = document.getElementById("del2besoksted");
+	var bekreftBesokPostSted = document.getElementById("bekreft_besok_sted");
+	bekreftBesokPostSted.innerHTML = besokPostSted.value;
+	
+	var besokKommune = document.getElementById("del2besokkommune");
+	var bekreftBesokKommune = document.getElementById("bekreft_besok_kommune");
+	bekreftBesokKommune.innerHTML = besokKommune.value;	
 
-}
-function validateDel4(){
-
-}
-function validateDel5(){
-
-}
-function validateDel6(){
-
-}
-function validateDel7(){
+	var postAdr = document.getElementById("del2postadr");
+	var bekreftPostAdr = document.getElementById("bekreft_post_postadr");
+	bekreftPostAdr.innerHTML = postAdr.value;
+	
+	var postPostNr = document.getElementById("del2postpostnr");
+	var bekreftPostPostNr = document.getElementById("bekreft_post_postnummer");
+	bekreftPostPostNr.innerHTML = postPostNr.value;
+	
+	var postPostSted = document.getElementById("del2poststed");
+	var bekreftPostPostSted = document.getElementById("bekreft_post_poststed");
+	bekreftPostPostSted.innerHTML = postPostSted.value;
+	
+	var telefon = document.getElementById("del2posttlf");
+	var bekreftTelefon = document.getElementById("bekreft_telefon");
+	bekreftTelefon.innerHTML = telefon.value;
+	
+	var epost = document.getElementById("del2postepost");
+	var bekreftEpost = document.getElementById("bekreft_epost");
+	bekreftEpost.innerHTML = epost.value;
+	
+	var beskrivelse;
+	var bekreftBeskrivelse;
+	
+	var firma;
+	var bekreftFirma;
+	
+	var personer;
+	var bekreftPersoner;
+	
+	var aksjerTotalt;
+	var bekreftAksjerTotalt;
+	
+	var aksjePris;
+	var bekreftAksjePris;
+	
+	var aksjeKapitalFordelt;
+	var bekreftAksjeKapitalFordelt;
+	
+	var dagligLeder;
+	var bekreftDagligLeder;
+	
+	var styreLeder;
+	var bekreftStyreLeder;
+	
+	var styreMedlemmer;
+	var bekreftStyreMedlemmer;
+	
+	var varaMedlemmer;
+	var bekreftVaraMedlemmer;
+	
+	var signaturRett;
+	var bekreftSignaturRett;
 
 }

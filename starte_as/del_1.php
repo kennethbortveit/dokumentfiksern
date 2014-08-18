@@ -2,7 +2,7 @@
 <fieldset>
 	<legend>Sjekk navn</legend>
 	<label>Sjekk navn:</label>
-	<input type="text" id="sjekk_navn_input" onkeypress="setLink()"/>
+	<input type="text" id="sjekk_navn_input" onkeypress="setLink()" onchange="setConfirmationModal()" />
 	<a id="brreg_link" href="http://brreg.no/" target="_blank">
 		<button id="sjekk_navn_knapp" onclick="setLink()">Valider</button>
 	</a>
