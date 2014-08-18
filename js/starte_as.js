@@ -303,7 +303,6 @@ function clearDel2Post(){
 
 
 function setConfirmationModal(){
-	alert("setConfirmationModal");
 	var navn = document.getElementById("sjekk_navn_input");
 	var bekreftNavn = document.getElementById("bekreft_navn");
 	bekreftNavn.innerHTML = navn.value;
@@ -343,6 +342,10 @@ function setConfirmationModal(){
 	var epost = document.getElementById("del2postepost");
 	var bekreftEpost = document.getElementById("bekreft_epost");
 	bekreftEpost.innerHTML = epost.value;
+	
+	var sumAksjeKapital = document.getElementById("del_2_sum_aksjekapital");
+	var bekreftSumAksjeKapital = document.getElementById("bekreft_sum_aksjekapital");
+	bekreftSumAksjeKapital.innerHTML = sumAksjeKapital.value;
 	
 	var beskrivelse;
 	var bekreftBeskrivelse;

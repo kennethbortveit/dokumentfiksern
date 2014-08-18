@@ -35,6 +35,9 @@
 				<td>E-post:</td><td><span id="bekreft_epost"></span></td>
 			</tr>
 			<tr>
+				<td>Sum aksjekapital:</td><td><span id="bekreft_sum_aksjekapital"></span></td>
+			</tr>
+			<tr>
 				<td>Beskrivelse:</td><td><span id="bekreft_beskrivelse"></span></td>
 			</tr>
 			<tr>
