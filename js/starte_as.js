@@ -58,16 +58,28 @@ function addPerson(count){
 	//inputs
 	var navnInput = document.createElement("input");
 	navnInput.type = "text";
+	navnInput.onchange = function(){setConfirmationModal();};
+	navnInput.className += " person_navn_input";
 	var personnummerInput = document.createElement("input");
 	personnummerInput.type = "text";
+	personnummerInput.onchange = function(){setConfirmationModal();};
+	personnummerInput.className += " person_personnummer_input";
 	var adresseInput = document.createElement("input");
 	adresseInput.type = "text";
+	adresseInput.onchange = function(){setConfirmationModal();};
+	adresseInput.className += " person_adresse_input";
 	var postnummerInput = document.createElement("input");
 	postnummerInput.type = "text";
+	postnummerInput.onchange = function(){setConfirmationModal();};
+	postnummerInput.className += " person_postnummer_input";
 	var poststedInput = document.createElement("input");
 	poststedInput.type = "text";	
+	poststedInput.onchange = function(){setConfirmationModal();};
+	poststedInput.className += " person_poststed_input";
+	
 	//setting classes
 	column.className = "small-6 columns";
+	column.className += " del4owner";
 	panel.className = "panel";
 	//setting ids
 	column.id = "person_"+count;
@@ -102,6 +114,7 @@ function addPerson(count){
 	//incrementing count and setting function with new argument.
 	count = count + 1;
 	document.getElementById("add_person_button").onclick = function(){addPerson(count);};
+	
 }
 function removePerson(id){
 	var column = document.getElementById(id);
@@ -113,6 +126,7 @@ function addFirm(count){
 	var row = document.getElementById("person_and_firms");
 	var column = document.createElement("div");
 	column.className = "small-6 columns";
+	column.className += " del4owner";
 	row.appendChild(column);
 	var panel = document.createElement("div");
 	panel.className = "panel";
@@ -129,6 +143,8 @@ function addFirm(count){
 	panel.appendChild(navnLabel);
 	var navnInput = document.createElement("input");
 	navnInput.type = "text";
+	navnInput.onchange = function(){setConfirmationModal();};
+	navnInput.className += " firm_navn_input";
 	panel.appendChild(navnInput);
 	//Org. nummer
 	var orgLabel = document.createElement("label");
@@ -137,6 +153,8 @@ function addFirm(count){
 	panel.appendChild(orgLabel);
 	orgInput = document.createElement("input");
 	orgInput.type = "text";
+	orgInput.onchange = function(){setConfirmationModal();};
+	orgInput.className += " firm_org_input";
 	panel.appendChild(orgInput);
 	//Adresse
 	var adresseLabel = document.createElement("label");
@@ -145,6 +163,8 @@ function addFirm(count){
 	panel.appendChild(adresseLabel);
 	var adresseInput = document.createElement("input");
 	adresseInput.type = "text";
+	adresseInput.onchange = function(){setConfirmationModal();};
+	adresseInput.className += " firm_adresse_input";
 	panel.appendChild(adresseInput);
 	//Postnummer
 	var postnummerLabel = document.createElement("label");
@@ -153,6 +173,8 @@ function addFirm(count){
 	panel.appendChild(postnummerLabel);
 	var postnummerInput = document.createElement("input");
 	postnummerInput.type = "text";
+	postnummerInput.onchange = function(){setConfirmationModal();};
+	postnummerInput.className += " firm_postnummer_input";
 	panel.appendChild(postnummerInput);
 	//Poststed
 	var poststedLabel = document.createElement("label");
@@ -161,10 +183,13 @@ function addFirm(count){
 	panel.appendChild(poststedLabel);
 	var poststedInput = document.createElement("input");
 	poststedInput.type = "text";
+	poststedInput.onchange = function(){setConfirmationModal();};
+	poststedInput.className += " firm_poststed_input";
 	panel.appendChild(poststedInput);
 	//id
 	var idPara = document.createElement("p");
-	var idText = document.createTextNode("This firm has the id firm_"+count);
+	var idText = document.createTextNode("This firm has the id firm_"+count+ " "+column.className);
+
 	idPara.appendChild(idText);
 	panel.appendChild(idPara);
 	column.id = "firm_"+count;
@@ -174,6 +199,9 @@ function addFirm(count){
 	var buttonText = document.createTextNode("Fjern");
 	button.appendChild(buttonText);
 	panel.appendChild(button);
+	
+	//set class
+	
 	//set next call
 	count++;
 	document.getElementById("add_firm_button").onclick = function(){addFirm(count);};
@@ -303,6 +331,7 @@ function clearDel2Post(){
 
 
 function setConfirmationModal(){
+
 	var navn = document.getElementById("sjekk_navn_input");
 	var bekreftNavn = document.getElementById("bekreft_navn");
 	bekreftNavn.innerHTML = navn.value;
@@ -347,14 +376,14 @@ function setConfirmationModal(){
 	var bekreftSumAksjeKapital = document.getElementById("bekreft_sum_aksjekapital");
 	bekreftSumAksjeKapital.innerHTML = sumAksjeKapital.value;
 	
-	var beskrivelse;
-	var bekreftBeskrivelse;
+	var beskrivelse = document.getElementById("del3beskrivelse");
+	var bekreftBeskrivelse = document.getElementById("bekreft_beskrivelse");
+	bekreftBeskrivelse.innerHTML = beskrivelse.value;
 	
-	var firma;
-	var bekreftFirma;
+	var eiere = document.getElementsByClassName("del4owner");
+	var bekreftEiere = document.getElementById("bekreft_eiere");
+	createConfirmationModalText(eiere, bekreftEiere);
 	
-	var personer;
-	var bekreftPersoner;
 	
 	var aksjerTotalt;
 	var bekreftAksjerTotalt;
@@ -380,4 +409,33 @@ function setConfirmationModal(){
 	var signaturRett;
 	var bekreftSignaturRett;
 
+}
+
+function createConfirmationModalText(eiere, bekreftEiere){
+	bekreftEiere.innerHTML = "";
+	
+	//firms
+	var firmNames = document.getElementsByClassName("firm_navn_input");
+	var firmOrgs = document.getElementsByClassName("firm_org_input");
+	var firmAdresses = document.getElementsByClassName("firm_adresse_input");
+	var firmZips = document.getElementsByClassName("firm_postnummer_input");
+	var firmPlaces = document.getElementsByClassName("firm_poststed_input");
+	
+	for(var i = 0; i < firmNames.length; i++){
+		bekreftEiere.innerHTML += firmNames[i].value + ", " + firmOrgs[i].value + ", " + firmAdresses[i].value + ", " + firmZips[i].value + ", " + firmPlaces[i].value + "<br />";
+	
+	}
+	
+	//persons
+	var personNames = document.getElementsByClassName("person_navn_input");
+	var personNumbers = document.getElementsByClassName("person_personnummer_input");
+	var personAdresses = document.getElementsByClassName("person_adresse_input");
+	var personZips = document.getElementsByClassName("person_postnummer_input");
+	var personLocations = document.getElementsByClassName("person_poststed_input");
+	
+	for(var i = 0; i < personNames.length; i++){
+		bekreftEiere.innerHTML += personNames[i].value + ", " + personNumbers[i].value + ", " + personAdresses[i].value + ", " + personZips[i].value + ", " + personLocations[i].value + "<br />";
+	
+	}
+	
 }

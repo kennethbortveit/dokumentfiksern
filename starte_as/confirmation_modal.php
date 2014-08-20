@@ -1,9 +1,9 @@
 <div id="confirmation_modal" class="reveal-modal large" data-reveal>
 	<div class="row">
-		<h2>Bekreft og Kjøp</h2>	
+		<h2 id="confirmation_modal_headline">Bekreft og Kjøp</h2>	
 	</div>
 	<div class="row">
-		<table>
+		<table id="confirmation_modal_table">
 			<tr>
 				<td>Navn:</td><td><span id="bekreft_navn"></span></td>
 			</tr>
@@ -41,10 +41,7 @@
 				<td>Beskrivelse:</td><td><span id="bekreft_beskrivelse"></span></td>
 			</tr>
 			<tr>
-				<td>Firma:</td><td><span id=""></span></td>
-			</tr>
-			<tr>
-				<td>Personer:</td><td><span id=""></span></td>
+				<td>Eiere:</td><td><span id="bekreft_eiere"></span></td>
 			</tr>
 			<tr>
 				<td>Aksjer totalt:</td><td><span id="bekreft_aksjer_totalt"></span></td>
