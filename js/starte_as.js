@@ -385,14 +385,18 @@ function setConfirmationModal(){
 	createConfirmationModalText(eiere, bekreftEiere);
 	
 	
-	var aksjerTotalt;
-	var bekreftAksjerTotalt;
 	
-	var aksjePris;
-	var bekreftAksjePris;
+	var aksjerTotalt = document.getElementById("aksjer_totalt");
+	var bekreftAksjerTotalt = document.getElementById("bekreft_aksjer_totalt");
+	bekreftAksjerTotalt.innerHTML = aksjerTotalt.value;
 	
-	var aksjeKapitalFordelt;
-	var bekreftAksjeKapitalFordelt;
+	var aksjePris = document.getElementById("pris_per_aksje");
+	var bekreftAksjePris = document.getElementById("bekreft_aksje_pris");
+	bekreftAksjePris.innerHTML = aksjePris.value;
+	
+	var aksjeKapitalFordelt = document.getElementById("total_aksjekapital_fordelt");
+	var bekreftAksjeKapitalFordelt = document.getElementById("bekreft_aksjekapital_fordelt");
+	bekreftAksjeKapitalFordelt.innerHTML = aksjeKapitalFordelt.value;
 	
 	var dagligLeder;
 	var bekreftDagligLeder;
@@ -438,4 +442,14 @@ function createConfirmationModalText(eiere, bekreftEiere){
 	
 	}
 	
+}
+function calculateStock(){
+	var aksjekapital = document.getElementById("del_2_sum_aksjekapital");
+	var aksjerTotalt = document.getElementById("aksjer_totalt");
+	var prisPerAksje = document.getElementById("pris_per_aksje");
+	var totalAksjeKapitalFordelt = document.getElementById("total_aksjekapital_fordelt");
+	
+	
+	prisPerAksje.value = parseFloat(aksjekapital.value)/parseFloat(aksjerTotalt.value);
+	totalAksjeKapitalFordelt.value = parseFloat(aksjerTotalt.value)*parseFloat(prisPerAksje.value);
 }
