@@ -31,6 +31,6 @@
 	<h3>Aksjekapital</h3>
 	<p>Minimumskravet til aksjekapital er kr 30 000. Du står fritt til å bruke en høyere sum.</p>
 	<label>Sum aksjekapital:</label>
-	<input type="text" id="del_2_sum_aksjekapital" onchange="setConfirmationModal()" />
+	<input type="text" id="del_2_sum_aksjekapital" value="0" onchange="setConfirmationModal()" />
 </form>
 

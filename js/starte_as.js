@@ -1,5 +1,3 @@
-function validerNavn(){
-}
 function loadXmlDoc(){
 	var xmlhttp;
 	if(window.XMLHttpRequest){
@@ -219,6 +217,7 @@ function addDagligLeder(){
 	column.id = "daglig_leder_column";
 	var panel = document.createElement("div");
 	panel.className = "panel";
+	panel.id = "daglig_leder_panel";
 	var headline = document.createElement("h3");
 	var headlineText = document.createTextNode("Daglig Leder");
 	var navnLabel = document.createElement("label");
@@ -235,14 +234,19 @@ function addDagligLeder(){
 
 	var navnInput = document.createElement("input");
 	navnInput.type = "text";
+	navnInput.onchange = function(){setConfirmationModal();};
 	var personNummerInput = document.createElement("input");
 	personNummerInput.type = "text";
+	personNummerInput.onchange = function(){setConfirmationModal();};
 	var addresseInput = document.createElement("input");
 	addresseInput.type = "text";
+	addresseInput.onchange = function(){setConfirmationModal();};
 	var postNummerInput = document.createElement("input");
 	postNummerInput.type = "text";
+	postNummerInput.onchange = function(){setConfirmationModal();};
 	var postStedInput = document.createElement("input");
 	postStedInput.type = "text";
+	postStedInput.onchange = function(){setConfirmationModal();};
 
 	headline.appendChild(headlineText);
 	navnLabel.appendChild(navnText);
@@ -398,20 +402,35 @@ function setConfirmationModal(){
 	var bekreftAksjeKapitalFordelt = document.getElementById("bekreft_aksjekapital_fordelt");
 	bekreftAksjeKapitalFordelt.innerHTML = aksjeKapitalFordelt.value;
 	
-	var dagligLeder;
-	var bekreftDagligLeder;
+	var dagligLeder = document.getElementById("daglig_leder_panel");
+	dagligLederAttributes = dagligLeder.getElementsByTagName("input");
+	var bekreftDagligLeder = document.getElementById("bekreft_daglig_leder");
+	bekreftDagligLeder.innerHTML = dagligLederAttributes[0].value + ", " + dagligLederAttributes[1].value + ", " + dagligLederAttributes[2].value + ", " + dagligLederAttributes[3].value + ", " + dagligLederAttributes[4].value;
 	
-	var styreLeder;
-	var bekreftStyreLeder;
-	
+	var styreLeder = document.getElementById("styre_leder_panel");
+	var styreLederAttributes = document.getElementsByClassName("styre_leder_attributes");
+	var bekreftStyreLeder = document.getElementById("bekreft_styre_leder");
+	bekreftStyreLeder.innerHTML = styreLederAttributes[0].value + ", " + styreLederAttributes[1].value + ", " +  styreLederAttributes[2].value + ", " + styreLederAttributes[3].value + ", " + styreLederAttributes[4].value + ", " + styreLederAttributes[5].value;
 	var styreMedlemmer;
 	var bekreftStyreMedlemmer;
 	
 	var varaMedlemmer;
 	var bekreftVaraMedlemmer;
 	
-	var signaturRett;
-	var bekreftSignaturRett;
+	var signaturRett = document.getElementsByClassName("signaturrett_radio");
+	var bekreftSignaturRett = document.getElementById("bekreft_signaturrett");
+	for(var i = 0; i < signaturRett.length; i++){
+		if(signaturRett[i].checked == true){
+			var labels = document.getElementsByTagName("label");
+			for(var j = 0; j < labels.length; j++){
+				if(labels[j].getAttribute("for") == signaturRett[i].id){
+
+					bekreftSignaturRett.innerHTML = labels[j].innerHTML;
+				}
+			}
+
+		}
+	}
 
 }
 
@@ -452,4 +471,36 @@ function calculateStock(){
 	
 	prisPerAksje.value = parseFloat(aksjekapital.value)/parseFloat(aksjerTotalt.value);
 	totalAksjeKapitalFordelt.value = parseFloat(aksjerTotalt.value)*parseFloat(prisPerAksje.value);
+}
+function addStyreMedlem(){
+	var row = document.getElementById("styre_vara_medlemmer_row");
+	var column = document.createElement("div");
+	column.className = "small-6 columns";
+	var panel = document.createElement("div");
+	var headline = document.createElement("h3");
+	var headlineText = document.createTextNode("Styremedlem");
+	panel.className = "panel";
+	row.appendChild(column);
+	column.appendChild(panel);
+	panel.appendChild(headline);
+	headline.appendChild(headlineText);
+}
+function removeStyreMedlem(){
+
+}
+function addVaraMedlem(){
+	var row = document.getElementById("styre_vara_medlemmer_row");
+	var column = document.createElement("div");
+	column.className = "small-6 columns";
+	var panel = document.createElement("div");
+	panel.className = "panel";
+	var headline = document.createElement("h3");
+	var headlineText = document.createTextNode("Varamedlem");
+	row.appendChild(column);
+	column.appendChild(panel);
+	panel.appendChild(headline);
+	headline.appendChild(headlineText);
+}
+function removeVaraMedlem(){
+
 }
