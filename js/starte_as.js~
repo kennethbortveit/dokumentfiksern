@@ -281,7 +281,7 @@ function dagligLederHandler(){
 	var row = document.getElementById("daglig_leder_row");
 	var ja = document.getElementById("daglig_leder_ja");
 	var nei = document.getElementById("daglig_leder_nei");
-	removeDagligLeder();
+
 	if(ja.checked && !row.firstChild){
 		addDagligLeder();
 	}
