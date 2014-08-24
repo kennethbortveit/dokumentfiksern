@@ -626,4 +626,15 @@ function addVaraMedlem(){
 	panel.appendChild(fjern);
 	fjern.appendChild(fjernText);
 }
-
+function choosePack(pack){
+	var pack1 = document.getElementById("price_table_1");
+	var pack2 = document.getElementById("price_table_2");
+	if(pack == 1){
+		pack1.style.border = "3px solid #000000";
+		pack2.style.border = "";
+	}
+	else if(pack == 2){
+		pack1.style.border = "";
+		pack2.style.border = "3px solid #000000";
+	}
+}

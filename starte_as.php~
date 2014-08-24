@@ -22,7 +22,7 @@
 		<hr />
 		<div class="row" data-equalizer>
 			<div class="small-6 columns">
-				<ul class="pricing-table" data-equalizer-watch id="price_table_1">
+				<ul class="pricing-table" data-equalizer-watch>
 
 					<li class="title">AS PAKKE #1</li>
 					<li class="price">1990kr</li>
@@ -37,7 +37,7 @@
 				</ul>
 			</div>
 			<div class="small-6 columns">
-				<ul class="pricing-table" data-equalizer-watch id="price_table_2">
+				<ul class="pricing-table" data-equalizer-watch>
 
 					<li class="title">AS PAKKE #2</li>
 					<li class="price">998kr</li>

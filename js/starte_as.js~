@@ -281,7 +281,7 @@ function dagligLederHandler(){
 	var row = document.getElementById("daglig_leder_row");
 	var ja = document.getElementById("daglig_leder_ja");
 	var nei = document.getElementById("daglig_leder_nei");
-
+	removeDagligLeder();
 	if(ja.checked && !row.firstChild){
 		addDagligLeder();
 	}
@@ -626,4 +626,15 @@ function addVaraMedlem(){
 	panel.appendChild(fjern);
 	fjern.appendChild(fjernText);
 }
-
+function choosePack(pack){
+	var pack1 = document.getElementById("price_table_1");
+	var pack2 = document.getElementById("price_table_2");
+	if(pack == 1){
+		pack1.style.border = "2px solid #000000";
+		pack2.style.border = "";
+	}
+	else if(pack == 2){
+		pack1.style.border = "";
+		pack2.style.border = "2px solid #000000";
+	}
+}
