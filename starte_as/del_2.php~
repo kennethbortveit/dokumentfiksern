@@ -17,7 +17,7 @@
 	</div>
 	<div>
 		<label>Kommune:</label>
-		<input id="del2besokkommune" type="text" onchange="setConfirmationModal()" pattern="alpha" />
+		<input id="del2besokkommune" type="text" onchange="setConfirmationModal()" />
 		<small class="error">Kun bokstaver.</small>
 	</div>
 	<div>
