@@ -5,7 +5,7 @@
 	<div class="row">
 		<table id="confirmation_modal_table">
 			<tr>
-				<td>Navn:</td><td><span id="bekreft_navn"></span></td>
+				<td>Navn:</td><td>{{selskapetsNavn}}</td>
 			</tr>
 			<tr>
 				<td>Besøksadresse:</td><td><span id="bekreft_besok_adr"></span></td>
