@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+	$con = mysqli_connect("localhost", "kenneth", "kenzys", "dokumentfiksern");
+?>
 <html ng-app="starteAs">
 <head>
 <title>Starte AS</title>
@@ -15,44 +18,44 @@
 <script src="js/modules/starte-as.js"></script>
 
 </head>
-<body>
+<body ng-controller="starteAsController as starte">
 <?php include("top_bar.php");?>
 <div class="row">
 	<div class="small-12 column">
 		<h1>Starte AS</h1>
 		<hr />
-		<div class="row" data-equalizer ng-controller="priceController as price">
+		<div class="row" data-equalizer>
 			<div class="small-6 columns">
-				<ul class="pricing-table" data-equalizer-watch ng-style="price.pakkeEnStyle">
+				<ul class="pricing-table" data-equalizer-watch ng-style="starte.pakkeEnStyle">
 
 					<li class="title">AS PAKKE #1</li>
-					<li class="price">1990kr</li>
+					<li class="price">{{starte.pakkeEnPris | currency : ""}}kr</li>
 					<li class="description">Beskrivelse av AS pakken.</li>
 					<li class="bullet-item">Stiftelses dokument</li>
 					<li class="bullet-item">Styreprotokoll</li>
 					<li class="bullet-item">Vedtekter</li>
 					<li class="bullet-item">Åpningsbalanse</li>
 					<li class="bullet-item">Kontroll, utfylling og registrering via Alltinn</li>
-					<li class="cta-button"><a class="button" ng-click="price.selectEn()">Velg</a></li>
+					<li class="cta-button"><a class="button" ng-click="starte.selectEn()">Velg</a></li>
 
 				</ul>
 			</div>
 			<div class="small-6 columns">
-				<ul class="pricing-table" data-equalizer-watch ng-style="price.pakkeToStyle">
+				<ul class="pricing-table" data-equalizer-watch ng-style="starte.pakkeToStyle">
 
 					<li class="title">AS PAKKE #2</li>
-					<li class="price">998kr</li>
+					<li class="price">{{starte.pakkeToPris | currency : ""}}kr</li>
 					<li class="description">Beskrivelse av AS pakken.</li>
 					<li class="bullet-item">Stiftelses dokument</li>
 					<li class="bullet-item">Styreprotokoll</li>
 					<li class="bullet-item">Vedtekter</li>
 					<li class="bullet-item">Åpningsbalanse</li>
-					<li class="cta-button"><a class="button" ng-click="price.selectTo()">Velg</a></li>
+					<li class="cta-button"><a class="button" ng-click="starte.selectTo()">Velg</a></li>
 
 				</ul>
 			</div>
 		</div>
-		<p>Du betaler kun kr 1 990,- eks. mva for pakke en eller 998.- eks mva for pakke to. Så slipper du dyre kostnader der revisorer tar kr 10 000.- og advokater kan komme opp i kr 20 000.- så det er mye å spare.</p>
+		<p>Du betaler kun kr {{starte.pakkeEnPris}},- eks. mva for pakke en eller {{starte.pakkeToPris}},- eks mva for pakke to. Så slipper du dyre kostnader der revisorer tar kr {{10000}},- og advokater kan komme opp i kr {{20000}},- så det er mye å spare.</p>
 
 		<dl class="accordion" data-accordion>
 			<dd>
@@ -88,9 +91,6 @@
 							<label>Telefon</label><input type="text" ng-model="kontakt.telefon" />
 							<label>E-post</label><input type="text" ng-model="kontakt.epost" />
 							<label>Bekreft e-post</label><input type="text" ng-model="kontakt.bekreftEpost" />
-							<h3>Aksjekapital</h3>
-							<p>Minimumskravet til aksjekapital er kr 30 000. Du står fritt til å bruke en høyere sum.</p>
-							<label>Sum aksjekapital</label><input type="text" ng-model="kontakt.sumAksjekapital" />
 						</form>
 					</div>
 				</div>
@@ -152,14 +152,14 @@
 				<a href="#del_5"><h2>Del 5: Aksjefordeling</h2></a>
 				<div id="del_5" class="content">
 					<div ng-controller="aksjeController as aksje">
-						<p>Her velger du fordelingen av aksjer til hver aksjonær. Du kan fritt endre, og summene regnes ut automatisk.</p>	
+						<p>Her velger du fordelingen av aksjer til hver aksjonær. Du kan fritt endre, og summene regnes ut automatisk. Minimumskravet til aksjekapital er kr 30 000. Du står fritt til å bruke en høyere sum.</p>
 						<form>
+							<label>Sum aksjekapital</label>
+							<input type="text" ng-model="aksje.kapital" ng-change="aksje.calculateAntall()" />
 							<label>Aksjer totalt</label>
-							<input  type="text" ng-model="aksje.antall"/>
+							<input  type="text" ng-model="aksje.antall" ng-change="aksje.calculatePris()" />
 							<label>Pris pr. aksje</label>
-							<input type="text" ng-model="aksje.pris" />
-							<label>Total aksjekapital fordelt</label>
-							<input type="text" ng-model="aksje.fordelt" />
+							<input type="text" ng-model="aksje.pris" ng-change="aksje.calculateKapital()" />
 						</form>
 					</div>
 				</div>
@@ -198,7 +198,6 @@
 									<label>Adresse</label><input type="text" ng-model="styre.leder.adresse" />
 									<label>Postnr.</label><input type="text" ng-model="styre.leder.postnr" />
 									<label>Poststed</label><input type="text" ng-model="styre.leder.poststed" />
-
 								</div>
 							</div>
 
@@ -254,17 +253,17 @@
 							<input type="radio" value="4" ng-model="signatur.rett"/><label>Daglig leder og styret i fellesskap*.</label><br />
 							<input type="radio" value="5" ng-model="signatur.rett"/><label>Styrets leder og ett styremedlem i fellesskap*.</label><br />
 							<input type="radio" value="6" ng-model="signatur.rett"/><label>To styremedlemmer i fellesskap*.</label><br />
-							<small>*) I felleskap betyr at mer enn én person må signere. De fleste signaturer skjer i Altinn og kan gjøres på ulike tidspunkt fra ulike steder.</small>
+							<p>*) I felleskap betyr at mer enn én person må signere. De fleste signaturer skjer i Altinn og kan gjøres på ulike tidspunkt fra ulike steder.</p>
 						</form>
 					</div>
 
 				</div>
 			</dd>
 		</dl>
-		<div class="row" ng-controller="priceController as price">
+		<div class="row">
 			<h3>Pris å betale</h3>
 			
-			<p>{{price.totalKostnad | currency : "Kr"}},- eks. mva.</p>
+			<p>{{starte.totalKostnad | currency : ""}},- eks. mva.</p>
 			<p>Jeg har lest og godtar <a data-reveal-id="kjopsvilkar_modal">kjøpsvilkårene</a>.</p>
 			<p>Du blir nå sendt til paypal som er vår sikre kortbetalingsløsning. Når du registrerer AS så må en også registrere seg i foretaksregisteret, og der tilkommer et registreringsgebyr til det offentlige. Gebyrsatsene kan ses <a href="http://www.brreg.no/reg_gebyrer/" target="_blank">her</a>.</p>
 		</div>

@@ -3,7 +3,6 @@
 
 	starteAs.controller("kontaktController", function(){
 			this.ulik = "ja";			
-			this.sumAksjekapital = 0;
 			this.copyBesokTilPost = function(){
 				if(this.ulik == "nei"){
 					this.postadresse = this.besokAdresse;
@@ -33,7 +32,17 @@
 	starteAs.controller("aksjeController", function(){
 			this.antall = 0;
 			this.pris = 0;
-			this.fordelt = 0;
+			this.kapital = 0;
+			
+			this.calculatePris = function(){
+				this.pris = this.kapital/this.antall;
+			};
+			this.calculateKapital = function(){
+				this.kapital = this.pris * this.antall;
+			};
+			this.calculateAntall = function(){
+				this.antall = this.kapital / this.pris;
+			};
 		});
 	starteAs.controller("dagligLederController", function(){
 				this.svar = "ja";			
@@ -62,8 +71,10 @@
 	starteAs.controller("signaturController", function(){
 				
 			});
-	starteAs.controller("priceController", function(){
+	starteAs.controller("starteAsController", function(){
 				this.totalKostnad = 0;
+				this.pakkeEnPris = 1990;
+				this.pakkeToPris = 998;
 				this.pakkeEnStyle = {};
 				this.pakkeToStyle = {};
 
