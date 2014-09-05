@@ -11,16 +11,21 @@ else{
 	echo $_POST['telefon'] . "<br />";
 	echo $_POST['epost'] . "<br />";
 	mysqli_query($con, "INSERT INTO selskap(navn, telefon, epost, formal) VALUES('".$_POST['selskapetsNavn']."', '".$_POST['telefon']."', '".$_POST['epost']."', '".$_POST['formal']."')");
+	$selskapId = mysqli_insert_id($con);
 	//del 2
 	echo $_POST['besokAdresse'] . "<br />";
 	echo $_POST['besokNummer'] . "<br />";
 	echo $_POST['besokSted'] . "<br />";
 	echo $_POST['besokKommune'] . "<br />";
-	mysqli_query($con, "INSERT INTO besokadresse(adresse, poststed, postnummer, kommune) VALUES('".$_POST['besokAdresse']."', '".$_POST['besokSted']."', '".$_POST['besokNummer']."', '".$_POST['besokKommune']."')");
+	mysqli_query($con, "INSERT INTO besokadresse(adresse, poststed, postnummer, kommune, fk_selskap) VALUES('".$_POST['besokAdresse']."', '".$_POST['besokSted']."', '".$_POST['besokNummer']."', '".$_POST['besokKommune']."', ".$selskapId.")");
+	echo "BesokId er " . $ids['besokadresse'];
 	echo $_POST['postAdresse'] . "<br />";
 	echo $_POST['postNummer'] . "<br />";
 	echo $_POST['postSted'] . "<br />";
-	mysqli_query($con, "INSERT INTO postadresse(adresse, poststed, postnummer) VALUES('".$_POST['postAdresse']."', '".$_POST['postSted']."', '".$_POST['postNummer']."')");
+	mysqli_query($con, "INSERT INTO postadresse(adresse, poststed, postnummer, fk_selskap) VALUES('".$_POST['postAdresse']."', '".$_POST['postSted']."', '".$_POST['postNummer']."', ".$selskapId.")");
+	
+	
+	
 	
 	//del 3
 

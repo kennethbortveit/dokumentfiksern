@@ -202,11 +202,11 @@
 						<div class="small-4 columns" ng-repeat="medlem in styre">
 							<div class="panel">
 								<h3>Styremedlem</h3>		
-								<label>Navn</label><input type="text" ng-model="navn" />
-								<label>Persnr./D-nr.</label><input type="text" ng-model="persnr" />
-								<label>Adresse</label><input type="text" ng-model="adresse" />
-								<label>Postnr.</label><input type="text" ng-model="postnr" />
-								<label>Poststed</label><input type="text" ng-model="poststed" />
+								<label>Navn</label><input type="text" ng-model="medlem.navn" />
+								<label>Persnr./D-nr.</label><input type="text" ng-model="medlem.persnr" />
+								<label>Adresse</label><input type="text" ng-model="medlem.adresse" />
+								<label>Postnr.</label><input type="text" ng-model="medlem.postnr" />
+								<label>Poststed</label><input type="text" ng-model="medlem.poststed" />
 								<button ng-click="fjernStyre(medlem)">Fjern</button>	
 							</div>
 
@@ -214,11 +214,11 @@
 						<div class="small-4 columns" ng-repeat="medlem in vara">
 							<div class="panel">
 								<h3>Varamedlem</h3>
-								<label>Navn</label><input type="text" ng-model="navn" />
-								<label>Persnr./D-nr.</label><input type="text" ng-model="persnr" />
-								<label>Adresse</label><input type="text" ng-model="adresse" />
-								<label>Postnr.</label><input type="text" ng-model="postnr" />
-								<label>Poststed</label><input type="text" ng-model="poststed" />
+								<label>Navn</label><input type="text" ng-model="medlem.navn" />
+								<label>Persnr./D-nr.</label><input type="text" ng-model="medlem.persnr" />
+								<label>Adresse</label><input type="text" ng-model="medlem.adresse" />
+								<label>Postnr.</label><input type="text" ng-model="medlem.postnr" />
+								<label>Poststed</label><input type="text" ng-model="medlem.poststed" />
 								<button ng-click="fjernVara(medlem)">Fjern</button>
 
 							</div>
