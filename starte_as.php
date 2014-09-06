@@ -119,22 +119,22 @@
 							<div class="small-4 columns" ng-repeat="person in personer">
 								<div class="panel">
 									<h3>Person</h3>
-									<label>Navn</label><input type="text" ng-model="navn" />
-									<label>Personnr.</label><input type="text" ng-model="persnr" />
-									<label>Adresse</label><input type="text" ng-modal="adresse" />
-									<label>Postnummer</label><input type="text" ng-model="postnr" />
-									<label>Poststed</label><input type="text" ng-model="poststed" />
+									<label>Navn</label><input type="text" ng-model="person.navn" />
+									<label>Personnr.</label><input type="text" ng-model="person.persnr" />
+									<label>Adresse</label><input type="text" ng-model="person.adresse" />
+									<label>Postnummer</label><input type="text" ng-model="person.postnr" />
+									<label>Poststed</label><input type="text" ng-model="person.poststed" />
 									<button ng-click="fjernPerson(person)">Fjern</button>
 								</div>
 							</div>
 							<div class="small-4 columns" ng-repeat="firma in firmaer">
 								<div class="panel">
 									<h3>Firma</h3>
-									<label>Navn</label><input type="text" ng-model="navn" />
-									<label>Organisasjonsnr.</label><input type="text" ng-model="orgnr" />
-									<label>Adresse</label><input type="text" ng-model="adresse" />
-									<label>Postnummer</label><input type="text" ng-model="postnr" />
-									<label>Poststed</label><input type="text" ng-model="poststed" />
+									<label>Navn</label><input type="text" ng-model="firma.navn" />
+									<label>Organisasjonsnr.</label><input type="text" ng-model="firma.orgnr" />
+									<label>Adresse</label><input type="text" ng-model="firma.adresse" />
+									<label>Postnummer</label><input type="text" ng-model="firma.postnr" />
+									<label>Poststed</label><input type="text" ng-model="firma.poststed" />
 									<button ng-click="fjernFirma(firma)">Fjern</button>
 								</div>
 							</div>

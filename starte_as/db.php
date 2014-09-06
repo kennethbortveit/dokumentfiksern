@@ -18,7 +18,6 @@ else{
 	echo $_POST['besokSted'] . "<br />";
 	echo $_POST['besokKommune'] . "<br />";
 	mysqli_query($con, "INSERT INTO besokadresse(adresse, poststed, postnummer, kommune, fk_selskap) VALUES('".$_POST['besokAdresse']."', '".$_POST['besokSted']."', '".$_POST['besokNummer']."', '".$_POST['besokKommune']."', ".$selskapId.")");
-	echo "BesokId er " . $ids['besokadresse'];
 	echo $_POST['postAdresse'] . "<br />";
 	echo $_POST['postNummer'] . "<br />";
 	echo $_POST['postSted'] . "<br />";
@@ -30,7 +29,16 @@ else{
 	//del 3
 
 	//del 4
-
+	//Person eiere
+	$json = json_decode($_POST['personEiere'], true);
+	foreach($json as $j){
+		echo $j['navn'];
+	}
+	//Firma eiere
+	$json = json_decode($_POST['firmaEiere'], true);
+	foreach($json as $j){
+		echo $j['navn'];
+	}
 	//del 5
 
 	//del 6
