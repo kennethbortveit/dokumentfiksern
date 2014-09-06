@@ -33,11 +33,21 @@ else{
 	$json = json_decode($_POST['personEiere'], true);
 	foreach($json as $j){
 		echo $j['navn'];
+		echo $j['persnr'];
+		echo $j['adresse'];
+		echo $j['postnr'];
+		echo $j['poststed'];
+		echo "\n";
 	}
 	//Firma eiere
 	$json = json_decode($_POST['firmaEiere'], true);
 	foreach($json as $j){
 		echo $j['navn'];
+		echo $j['orgnr'];
+		echo $j['adresse'];
+		echo $j['postnr'];
+		echo $j['poststed'];
+		echo "\n";
 	}
 	//del 5
 
