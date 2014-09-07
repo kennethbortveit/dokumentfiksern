@@ -116,7 +116,7 @@
 					$scope.formData.firmaEiere = JSON.stringify(del4Scope.firmaer);
 					var del5Scope = angular.element(document.getElementById("del_5")).scope();
 					$scope.formData.aksjeKapital = del5Scope.kapital;
-					$scope.formData.aksjeTotal = del5Scope.total;
+					$scope.formData.aksjeTotal = del5Scope.antall;
 					$scope.formData.aksjePris = del5Scope.pris;
 					var del6Scope = angular.element(document.getElementById("del_6")).scope();
 					$scope.formData.dagligLeder = [];

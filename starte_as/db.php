@@ -38,6 +38,7 @@ else{
 		echo $j['postnr'];
 		echo $j['poststed'];
 		echo "\n";
+		mysqli_query($con, "INSERT INTO person_eiere(navn, personnummer, adresse, postnummer, poststed, fk_selskap) VALUES('".$j['navn']."', '".$j['persnr']."', '".$j['adresse']."', ".$j['postnr'].", '".$j['poststed']."', ".$selskapId.")");
 	}
 	//Firma eiere
 	$json = json_decode($_POST['firmaEiere'], true);
@@ -48,11 +49,17 @@ else{
 		echo $j['postnr'];
 		echo $j['poststed'];
 		echo "\n";
+		mysqli_query($con, "INSERT INTO firma_eiere(navn, organisasjonsnummer, adresse, postnummer, poststed, fk_selskap) VALUES('".$j['navn']."', '".$j['orgnr']."', '".$j['adresse']."', ".$j['postnr'].", '".$j['poststed']."', ".$selskapId.")");
 	}
 	//del 5
-
+		echo "Aksjekapital" . $_POST['aksjeKapital'];
+		echo "Aksjetotal" . $_POST['aksjeTotal'];
+		echo "Aksjepris" . $_POST['aksjePris'];
+		mysqli_query($con, "INSERT INTO selskap(antall_aksjer, kapital, aksjepris) VALUES(".$_POST['aksjeTotal'].", ".$_POST['aksjeKapital'].", ".$_POST['aksjePris'].")");
 	//del 6
-
+		echo "";
+		echo "";
+		echo "";
 	//del 7	
 
 }
