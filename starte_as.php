@@ -168,11 +168,11 @@
 							<div class="small-4 columns">
 								<div class="panel">
 									<h3>Daglig Leder</h3>
-									<label>Navn</label><input type="text" />
-									<label>Personnr./D-nr.</label><input type="text" />
-									<label>Adresse</label><input type="text" />
-									<label>Postnummer</label><input type="text" />
-									<label>Poststed</label><input type="text" /> 
+									<label>Navn</label><input type="text" ng-model="dagligLeder.navn" />
+									<label>Personnr./D-nr.</label><input type="text" ng-model="dagligLeder.persnr" />
+									<label>Adresse</label><input type="text" ng-model="dagligLeder.adresse" />
+									<label>Postnummer</label><input type="text" ng-model="dagligLeder.postnummer" />
+									<label>Poststed</label><input type="text" ng-model="dagligLeder.poststed" /> 
 								</div>
 							</div>
 						</div>

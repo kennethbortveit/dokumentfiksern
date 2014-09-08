@@ -57,9 +57,24 @@ else{
 		echo "Aksjepris" . $_POST['aksjePris'];
 		mysqli_query($con, "INSERT INTO selskap(antall_aksjer, kapital, aksjepris) VALUES(".$_POST['aksjeTotal'].", ".$_POST['aksjeKapital'].", ".$_POST['aksjePris'].")");
 	//del 6
-		echo "";
-		echo "";
-		echo "";
+		$dagligLeder = json_decode($_POST['dagligLeder'], true);
+		mysqli_query($con, "INSERT INTO daglig_leder(navn, personnummer, adresse, postnummer, poststed, fk_selskap) VALUES('".$dagligLeder['navn']."', '".$dagligLeder['persnr']."', '".$dagligLeder['adresse']."', ".$dagligLeder['postnummer'].", '".$dagligLeder['poststed']."', ".$selskapId.")");
+		echo "dl navn:" . $dagligLeder['navn'];
+		echo "dl persnr:" . $dagligLeder['persnr'];
+		echo "dl adresse:" . $dagligLeder['adresse'];
+		echo "dl postnummer:" . $dagligLeder['postnummer'];
+		echo "dl poststed:" . $dagligLeder['poststed'];
+		$styreLeder = json_decode($_POST['styreLeder'], true);
+		mysqli_query($con, "INSERT INTO styre_leder(navn, personnummer, adresse, postnummer, poststed, fk_selskap) VALUES('".$styreLeder['navn']."', '".$styreLeder['persnr']."', '".$styreLeder['adresse']."', ".$styreLeder['postnr'].", '".$styreLeder['poststed']."', ".$selskapId.")");
+		echo "StyreLeder navn:" . $styreLeder['navn'];
+		echo "StyreLeder pers:" . $styreLeder['persnr'];
+		echo "StyreLeder adresse:" . $styreLeder['adresse'];
+		echo "StyreLeder postnr:" . $styreLeder['postnr'];
+		echo "StyreLeder poststed:" . $styreLeder['poststed'];
+		
+		
+		
+		
 	//del 7	
 
 }

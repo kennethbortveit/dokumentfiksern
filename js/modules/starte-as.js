@@ -119,8 +119,8 @@
 					$scope.formData.aksjeTotal = del5Scope.antall;
 					$scope.formData.aksjePris = del5Scope.pris;
 					var del6Scope = angular.element(document.getElementById("del_6")).scope();
-					$scope.formData.dagligLeder = [];
-					$scope.formData.styreLeder = [];
+					$scope.formData.dagligLeder = JSON.stringify(del6Scope.dagligLeder);
+					$scope.formData.styreLeder = JSON.stringify(del6Scope.leder);
 					$scope.formData.styreMedlemmer = [];
 					$scope.formData.varaMedlemmer = [];
 					var del7Scope = angular.element(document.getElementById("del_7")).scope();
