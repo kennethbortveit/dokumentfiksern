@@ -257,8 +257,6 @@
 		<div class="row">
 			<div class="small-12 columns">
 				<button ng-click="setFormData()">Bekreft</button>
-				<h3>{{serverTest}}</h3>
-				<pre>{{formData}}</pre>
 			</div>
 		</div>
 	</div>
