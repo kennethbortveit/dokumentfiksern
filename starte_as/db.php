@@ -6,11 +6,12 @@ if(mysqli_connect_errno($con)){
 	echo "could not connect to database";
 }
 else{
-	//del 1 / 2
+
+	//del 1 / 2/5
 	echo $_POST['selskapetsNavn'] . "<br />";
 	echo $_POST['telefon'] . "<br />";
 	echo $_POST['epost'] . "<br />";
-	mysqli_query($con, "INSERT INTO selskap(navn, telefon, epost, formal) VALUES('".$_POST['selskapetsNavn']."', '".$_POST['telefon']."', '".$_POST['epost']."', '".$_POST['formal']."')");
+	mysqli_query($con, "INSERT INTO selskap(navn, telefon, epost, formal, antall_aksjer, kapital, aksjepris, signaturrett) VALUES('".$_POST['selskapetsNavn']."', '".$_POST['telefon']."', '".$_POST['epost']."', '".$_POST['formal']."', ".$_POST['aksjeTotal'].", ".$_POST['aksjeKapital'].", ".$_POST['aksjePris'].", ".$_POST['signaturVerdi'].")");
 	$selskapId = mysqli_insert_id($con);
 	//del 2
 	echo $_POST['besokAdresse'] . "<br />";
@@ -51,11 +52,7 @@ else{
 		echo "\n";
 		mysqli_query($con, "INSERT INTO firma_eiere(navn, organisasjonsnummer, adresse, postnummer, poststed, fk_selskap) VALUES('".$j['navn']."', '".$j['orgnr']."', '".$j['adresse']."', ".$j['postnr'].", '".$j['poststed']."', ".$selskapId.")");
 	}
-	//del 5
-		echo "Aksjekapital" . $_POST['aksjeKapital'];
-		echo "Aksjetotal" . $_POST['aksjeTotal'];
-		echo "Aksjepris" . $_POST['aksjePris'];
-		mysqli_query($con, "INSERT INTO selskap(antall_aksjer, kapital, aksjepris) VALUES(".$_POST['aksjeTotal'].", ".$_POST['aksjeKapital'].", ".$_POST['aksjePris'].")");
+
 	//del 6
 		$dagligLeder = json_decode($_POST['dagligLeder'], true);
 		mysqli_query($con, "INSERT INTO daglig_leder(navn, personnummer, adresse, postnummer, poststed, fk_selskap) VALUES('".$dagligLeder['navn']."', '".$dagligLeder['persnr']."', '".$dagligLeder['adresse']."', ".$dagligLeder['postnummer'].", '".$dagligLeder['poststed']."', ".$selskapId.")");
@@ -71,11 +68,21 @@ else{
 		echo "StyreLeder adresse:" . $styreLeder['adresse'];
 		echo "StyreLeder postnr:" . $styreLeder['postnr'];
 		echo "StyreLeder poststed:" . $styreLeder['poststed'];
-		
+		$varaMedlemmer = json_decode($_POST['varaMedlemmer'], true);
+		foreach($varaMedlemmer as $vara){
+			mysqli_query($con, "INSERT INTO vara_medlemmer(navn, personnummer, adresse, postnummer, poststed, fk_selskap) VALUES('".$vara['navn']."', '".$vara['persnr']."', '".$vara['adresse']."', ".$vara['postnr'].", '".$vara['poststed']."', ".$selskapId.")");
+			echo "1";
+		}
+		$styreMedlemmer = json_decode($_POST['styreMedlemmer'], true);
+		foreach($styreMedlemmer as $styre){
+			mysqli_query($con, "INSERT INTO styre_medlemmer(navn, personnummer, adresse, postnummer, poststed, fk_selskap) VALUES('".$styre['navn']."', '".$styre['persnr']."', '".$styre['adresse']."', ".$styre['postnr'].", '".$styre['poststed']."', ".$selskapId.")");
+			echo "2";
+		}
 		
 		
 		
 	//del 7	
+		
 
 }
 mysqli_close($con);

@@ -121,8 +121,8 @@
 					var del6Scope = angular.element(document.getElementById("del_6")).scope();
 					$scope.formData.dagligLeder = JSON.stringify(del6Scope.dagligLeder);
 					$scope.formData.styreLeder = JSON.stringify(del6Scope.leder);
-					$scope.formData.styreMedlemmer = [];
-					$scope.formData.varaMedlemmer = [];
+					$scope.formData.styreMedlemmer = JSON.stringify(del6Scope.styre);
+					$scope.formData.varaMedlemmer = JSON.stringify(del6Scope.vara);
 					var del7Scope = angular.element(document.getElementById("del_7")).scope();
 					$scope.formData.signaturVerdi = del7Scope.rett;
 					$scope.dbStore();
